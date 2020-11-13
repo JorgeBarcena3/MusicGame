@@ -7,19 +7,19 @@ public class Background : MonoBehaviour
 {
 
     /// <summary>
-    /// Start in the background
+    /// Enemies in the background
     /// </summary>
-    private List<GameObject> stars = new List<GameObject>();
+    private List<GameObject> enemies = new List<GameObject>();
 
     /// <summary>
-    /// Number of stars
+    /// Number of enemies
     /// </summary>
-    public int startsNumber;
+    public int enemyNumber;
 
     /// <summary>
-    /// Star prefab
+    /// Enemy prefab
     /// </summary>
-    public GameObject star;
+    public GameObject enemyPrefab;
 
     /// <summary>
     /// Direction of the background
@@ -39,10 +39,10 @@ public class Background : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < startsNumber; i++)
+        for (int i = 0; i < enemyNumber; i++)
         {
-            stars.Add(Instantiate(star, this.transform));
-            stars.Last().GetComponent<Star>().setBackgroundManager(this);
+            enemies.Add(Instantiate(enemyPrefab, this.transform));
+            enemies.Last().GetComponent<EnemyController>().setBackgroundManager(this);
         }
     }
 
